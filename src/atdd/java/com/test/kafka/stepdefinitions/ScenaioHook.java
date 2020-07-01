@@ -1,4 +1,4 @@
-package stepdefinitions;
+package com.test.kafka.stepdefinitions;
 
 
 import cucumber.api.java.After;

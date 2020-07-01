@@ -1,25 +1,19 @@
-package stepdefinitions;
+package com.test.kafka.stepdefinitions;
 
-import com.techprimers.kafka.springbootkafkaproducerexample.model.User;
+import com.test.kafka.CucumberStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import kafka.KafkaproducerConfig;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.kafka.support.KafkaHeaders.TOPIC;
-@DependsOn("test")
+
+@CucumberStep
 public class MyStepdefs {
 
     @Autowired
-  //  KafkaTemplate kafkaTemplate = new KafkaTemplate;
     private KafkaTemplate<String,String> kafkaTemplate;
     private KafkaproducerConfig kafkaproducerConfig;
     static String TOPIC = "Kafka_Example";

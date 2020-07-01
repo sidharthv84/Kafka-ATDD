@@ -1,4 +1,4 @@
-package model;
+package com.test.kafka.model;
 
 public class User {
 
