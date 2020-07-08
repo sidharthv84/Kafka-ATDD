@@ -8,4 +8,4 @@ Feature: Kafka Framework Setup
   And validate events in "<json_event_response>"
   Examples:
     |json_input_response|json_output_response|json_event_response|
-    | validJson         |validOutput         |validEvent         |
+    | afprequest2        |validOutput         |validEvent         |

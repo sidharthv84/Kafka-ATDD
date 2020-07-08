@@ -1,6 +1,6 @@
 package kafka;
 
-import com.test.kafka.model.User;
+import com.techprimers.kafka.springbootkafkaproducerexample.model.User;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;

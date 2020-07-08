@@ -1,6 +1,7 @@
 package com.test.kafka.stepdefinitions;
 
 import com.test.kafka.CucumberStep;
+import com.test.kafka.utils.ResourceLoaderHelper;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,6 +16,8 @@ public class MyStepdefs {
 
     @Autowired
     private KafkaTemplate<String,String> kafkaTemplate;
+    @Autowired
+    private ResourceLoaderHelper resourceLoaderHelper;
     private KafkaproducerConfig kafkaproducerConfig;
     static String TOPIC = "Kafka_Example";
     static String key ="sample Key";
@@ -29,9 +32,12 @@ public class MyStepdefs {
     }
 
     @When("^a json request \"([^\"]*)\" is consumed by MS$")
-    public void aJsonRequestIsConsumedByMS(String arg0) throws Throwable {
+    public void aJsonRequestIsConsumedByMS(String requestId) throws Throwable {
       //  String message = "abc";
         kafkaTemplate.send(TOPIC,"test");
+        String message = resourceLoaderHelper.getrequest1(requestId);
+        kafkaTemplate.send(TOPIC,message);
+        System.out.println(message);
     //    System.out.println("test2");
      //   kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
 
